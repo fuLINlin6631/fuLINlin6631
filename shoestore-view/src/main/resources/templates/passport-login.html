@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="applicable-device" content="pc"/>
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <title>用户登录</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <script type="text/javascript" src="../static/js/formplus.js"></script>
+    <link rel="stylesheet" href="../static/css/style_2.css" type="text/css"/>
+    <link href="../static/css/style_b.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/css/style_1.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../static/js/tools.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.js"></script>
+    <style>
+        .foot {
+            border: 0;
+            width: 980px;
+            margin: 30px auto 0
+        }
+        .head {
+            padding: 20px 0
+        }
+        .login-descript {
+            padding: 12px 0 0;
+            border: 0;
+            margin: 0
+        }
+        .RegisterWrap .form table th {
+            text-align: right;
+            color: #666;
+            width: 60px;
+            padding: 0
+        }
+        .head .logo {
+            height: auto
+        }
+    </style>
+    <style>
+        /* 彩贝商家接入规范 */
+        .mod_cb_jr_pop {
+            font-size: 12px;
+            width: 220px;
+            padding: 6px 10px 10px;
+            position: absolute;
+            left: 0;
+            top: 24px;
+            background: #fffce6;
+            border: 1px solid #f5d682;
+            visibility: hidden;
+        }
+        .mod_cb_jr_pop .pop_title {
+            font-size: 16px;
+            font-family: "Microsoft Yahei";
+            line-height: 30px;
+            padding-left: 28px;
+            background: url(static/images/bg.png) no-repeat left -34px;
+        }
+
+        .mod_cb_jr_pop .pop_tips {
+            line-height: 20px;
+        }
+
+        .mod_cb_jr_pop .pop_flag {
+            position: absolute;
+            width: 15px;
+            height: 7px;
+            left: 30px;
+            top: -6px;
+            background: url(static/images/bg.png) left -21px no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <div class="warp clfix">
+        <span class="logo">
+            <a title="返回名鞋库首页" href="">
+                <img alt="欢迎来到名鞋库网上鞋城!" src="../static/images/newlogo.png">
+            </a>
+        </span>
+    </div>
+</div>
+<div class="AllWrapInside">
+    <form method="post" onsubmit="return checkLogin(this);" action='//www.s.cn/passport-verify.html' class='loginform'
+          id='loginform'>
+        <div class="RegisterWrap" style="margin:0">
+            <div class="form" style="padding:0;border:0"><input name="forward" type="hidden" value="">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr>
+                        <td align="center" width="40%">
+                            <a href="" target="_blank">
+                                <img src="../static/picture/2016dl.jpg">
+                            </a>
+                        </td>
+                        <td width="60%" style="vertical-align:top">
+                            <div style="margin:0 auto;width:450px">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                                    <tr>
+                                        <td>
+                                            <div style="height:28px"><img src="static/picture/loginpic21.png"/></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="width:85%;background:#fafafa;border:1px solid #eee;box-shadow:3px 3px #F5F5F5">
+                                                <table width="80%" border="0" cellspacing="0" cellpadding="0" style="margin:0 auto">
+                                                    <tr>
+                                                        <th></th>
+                                                        <td colspan="2" style="height:35px;line-height:25px">
+                                                            <span class="valierror" id="valierror" style="margin:0;display:none"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>用户名：</th>
+                                                        <td>
+                                                            <input name="login" class="x-input newinputstyle" id="in_login" tabindex="1" value="邮箱/手机/用户名"
+                                                                   onfocus="rmDefault(this)" style="width:220px;color:#aaa;border:1px solid #ccc;padding:3px 5px">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="padding-top:15px">密　码：</th>
+                                                        <td style="padding-top:15px">
+                                                            <input autocomplete="off" class="x-input newinputstyle" name="passwd" class="newinputstyle"
+                                                                                            type="password" id="in_passwd" tabindex="2"
+                                                                                            onBlur="ga('send','event','会员','登陆过程','密码');"
+                                                                                            style="width:220px;border:1px solid #ccc;padding:3px 5px"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr id="verifyTr">
+                                                        <th style="padding-top:15px">验证码：</th>
+                                                        <td style="padding-top:15px">
+                                                            <input autocomplete="off" class="x-input " style="width:65px;border:1px solid #ccc;padding:3px 5px" size="8" type="text" name="loginverifycode"
+                                                                                            onBlur="ga('send','event','会员','登陆过程','验证码');"
+                                                                                            id="iptlogin" tabindex="3"
+                                                                                            vtype="digits"/>
+                                                            <span class='verifyCode' style='display:block;'>
+                                                                <img src="static/picture/passport-l-verifycode.html" border="1"
+                                                                style="vertical-align:middle;padding:5px 0;background:#eee"/>&nbsp;
+                                                                <a href="javascript:void(0)" style="color:#666">换个图片</a>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <td style="padding-top:20px">
+                                                            <input class="actbtn cart-btn-next05" type="submit" value="登录"
+                                                                onclick="ga('send','event','会员','登陆过程','登陆 ');"
+                                                                tabindex="4" id="fast_login" style="display:inline"/>
+                                                            <a style="margin-left:10px;vertical-align:bottom" href="passport-lost.html" id="fast_login_fogot" class="c777">忘记密码？</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th>
+                                                        <td style="color:#999;padding:35px 0 25px">
+                                                            还不是名鞋库会员？　
+                                                            <a href='' onclick=""
+                                                                class="lnk cf60" id="fast_login_reg">马上注册为会员</a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="login_content">
+                                                <div style="width:85%">
+                                                    <div class="login-descript">使用合作网站账号登录名鞋库：</div>
+                                                    <div class="box5"></div>
+                                                    <div class="fl clfix" style="width:235px">
+                                                        <script type="text/javascript">
+                                                            function toQzoneLogin() {
+                                                                window.open("http://www.s.cn/index.php?action_openid_qq-qq_login.html", "TencentLogin", "width=450,height=450,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+                                                            }
+                                                        </script>
+                                                        <div class="login-IconList">
+                                                            <div style="position:relative;width:70px;height:16px;" onMouseover="$('loginQq').style.visibility='visible';" onMouseout="$('loginQq').style.visibility='hidden';">
+                                                                <a href="javascript:void(0);" onclick='toQzoneLogin()'
+                                                                   id="union_login_qq"><img src="static/picture/qq_login_btn.png"/></a>
+                                                                <div class="mod_cb_jr_pop" id="loginQq">
+                                                                    <div class="pop_title">QQ彩贝联盟商户</div>
+                                                                    <div class="pop_tips">使用QQ无需注册，购物还可额外获得彩贝积分返还。</div>
+                                                                    <div class="pop_flag"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="login-IconList">
+                                                        <a href="javascript:$('alipay').submit();">
+                                                            <img src="../static/picture/taobao_login_btn.png">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <input type='hidden' name='ref_url' value=''/>
+    </form>
+</div>
+<div class="foot" style="border-top:2px solid #CE3C3B;background:none">
+    <div class="row02 c777">
+        <span>
+            <a target="_blank" href="">关于名鞋库</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">联系名鞋库</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">人才招聘</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">免责条款</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">法律声明</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">客户留言</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">意见反馈</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">全部分类</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">友情链接</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">鞋子尺码对照表</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">问答</a>
+            <a target="_blank" href="">咨询</a>
+            <a target="_blank" href="">评论</a>
+            <a target="_blank" href="">主题</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">鞋子品牌大全</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">商品大全</a>
+        </span>
+        <div class="cl"></div>Copyright&nbsp;&copy;&nbsp;2008-2014 <s>s.cn </s> All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;
+        <a target="_blank" href="" rel="nofollow">闽ICP备08106896号 </a> &nbsp;&nbsp;&nbsp;&nbsp;经营许可证闽B2-20110061
+    </div>
+</div>
+</div>
+</body>
+</html>

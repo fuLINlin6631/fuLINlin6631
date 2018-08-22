@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ShoeManager.iml" filepath="$PROJECT_DIR$/ShoeManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-entity/shoestore-entity.iml" filepath="$PROJECT_DIR$/shoestore-entity/shoestore-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-interface/shoestore-interface.iml" filepath="$PROJECT_DIR$/shoestore-interface/shoestore-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-sso/shoestore-sso.iml" filepath="$PROJECT_DIR$/shoestore-sso/shoestore-sso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-utils/shoestore-utils.iml" filepath="$PROJECT_DIR$/shoestore-utils/shoestore-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-view/shoestore-view.iml" filepath="$PROJECT_DIR$/shoestore-view/shoestore-view.iml" />
+    </modules>
+  </component>
+</project>
