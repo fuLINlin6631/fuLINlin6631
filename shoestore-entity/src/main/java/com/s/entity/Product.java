@@ -1,4 +1,4 @@
-package com.my.db;
+package com.s.entity;
 
 public class Product {
   private Long productid;

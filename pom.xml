@@ -16,6 +16,8 @@
         <module>shoestore-utils</module>
         <module>shoestore-service</module>
         <module>shoestore-dao</module>
+        <module>shoestore-order</module>
+        <module>shoestore-solr</module>
     </modules>
     <!-- Inherit defaults from Spring Boot -->
     <parent>

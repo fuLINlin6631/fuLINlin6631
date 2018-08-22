@@ -1,17 +1,19 @@
-package com.my.db;
+package com.s.entity;
+
+import java.util.Date;
 
 public class Product_types {
-  private Long typeid;
+  private Integer typeid;
   private String typename;
-  private Long superior;
-  private java.sql.Timestamp createtime;
-  private java.sql.Timestamp modifytime;
+  private Integer superior;
+  private Date createtime;
+  private Date modifytime;
 
-  public Long getTypeid() {
+  public Integer getTypeid() {
     return typeid;
   }
 
-  public void setTypeid(Long typeid) {
+  public void setTypeid(Integer typeid) {
     this.typeid = typeid;
   }
 
@@ -23,27 +25,27 @@ public class Product_types {
     this.typename = typename;
   }
 
-  public Long getSuperior() {
+  public Integer getSuperior() {
     return superior;
   }
 
-  public void setSuperior(Long superior) {
+  public void setSuperior(Integer superior) {
     this.superior = superior;
   }
 
-  public java.sql.Timestamp getCreatetime() {
+  public Date getCreatetime() {
     return createtime;
   }
 
-  public void setCreatetime(java.sql.Timestamp createtime) {
+  public void setCreatetime(Date createtime) {
     this.createtime = createtime;
   }
 
-  public java.sql.Timestamp getModifytime() {
+  public Date getModifytime() {
     return modifytime;
   }
 
-  public void setModifytime(java.sql.Timestamp modifytime) {
+  public void setModifytime(Date modifytime) {
     this.modifytime = modifytime;
   }
 }

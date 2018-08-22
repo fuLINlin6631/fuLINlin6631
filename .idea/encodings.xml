@@ -5,7 +5,9 @@
     <file url="file://$PROJECT_DIR$/shoestore-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shoestore-entity" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shoestore-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shoestore-order" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shoestore-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shoestore-solr" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shoestore-sso" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shoestore-utils" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shoestore-view" charset="UTF-8" />
