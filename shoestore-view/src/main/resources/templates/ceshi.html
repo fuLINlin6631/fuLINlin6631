@@ -22,15 +22,15 @@
             $.getJSON("http://localhost:10000/token/"+token,function (data) {
                 if(data.status == 200){
                     var username = data.data.username;
-                    var html = username + "，欢迎来到！<a href=\"http://www.taotao.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
+                    var html = username + "，欢迎来到！<a href='http://localhost:10000/loginout/"+token+"'>[退出]</a>";
                     $("#loginbar").html(html);
                 }
                 if (data.status==400){
-                    location.href="http://localhost:10000/passport-login.html";
+                    location.replace("http://localhost:10000/passport-login.html");
                 }
             })
         }else{
-            alert("没有登陆");
+            location.replace("http://localhost:10000/passport-login.html");
         }
     }
 </script>

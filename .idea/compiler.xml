@@ -6,8 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="shoestore-dao" />
         <module name="shoestore-entity" />
         <module name="shoestore-interface" />
+        <module name="shoestore-service" />
         <module name="shoestore-sso" />
         <module name="shoestore-utils" />
         <module name="shoestore-view" />
@@ -15,8 +17,10 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ShoeManager" target="1.6" />
+      <module name="shoestore-dao" target="1.6" />
       <module name="shoestore-entity" target="1.6" />
       <module name="shoestore-interface" target="1.6" />
+      <module name="shoestore-service" target="1.6" />
       <module name="shoestore-sso" target="1.6" />
       <module name="shoestore-utils" target="1.6" />
       <module name="shoestore-view" target="1.6" />

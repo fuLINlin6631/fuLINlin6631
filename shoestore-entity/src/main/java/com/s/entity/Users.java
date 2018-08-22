@@ -1,8 +1,9 @@
 package com.s.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Users {
+public class Users implements Serializable {
   private Integer userid;
   private String username;
   private String userpwd;

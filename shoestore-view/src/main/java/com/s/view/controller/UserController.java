@@ -1,6 +1,7 @@
 package com.s.view.controller;
 
 import com.s.interfac.UserService;
+import com.s.utils.CookieUtils;
 import com.s.utils.SystemResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,16 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-public class UserController {
+public class UserController  {
 
     @Autowired
     private UserService userService;
 
     @ResponseBody
     @RequestMapping("/login")
-    public SystemResult login(String userEmail, String userpwd, HttpServletResponse response, HttpServletRequest request){
+    public SystemResult login(String userEmail, String userpwd,HttpServletResponse response,HttpServletRequest request){
         //从返回结果中取token，写入cookie。Cookie要跨域。
-        SystemResult systemResult = userService.login(userEmail,userpwd,response,request);
+        SystemResult systemResult = userService.login(userEmail,userpwd);
+        //设置cookie的key和value，key随便字符串，value为token值
+        CookieUtils.setCookie(request,response,"user",systemResult.getData().toString());
         return systemResult;
     }
     @ResponseBody
@@ -34,6 +37,12 @@ public class UserController {
     @RequestMapping("/passport-login.html")
     public String passportlogin(){
         return "passport-login";
+    }
+
+    @RequestMapping("/loginout/{token}")
+    public String loginout(@PathVariable String token){
+        userService.loginout(token);
+        return "redirect:index";
     }
 
     @RequestMapping("/ceshi.html")

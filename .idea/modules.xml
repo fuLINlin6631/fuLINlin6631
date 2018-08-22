@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ShoeManager.iml" filepath="$PROJECT_DIR$/ShoeManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-dao/shoestore-dao.iml" filepath="$PROJECT_DIR$/shoestore-dao/shoestore-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-entity/shoestore-entity.iml" filepath="$PROJECT_DIR$/shoestore-entity/shoestore-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-interface/shoestore-interface.iml" filepath="$PROJECT_DIR$/shoestore-interface/shoestore-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-service/shoestore-service.iml" filepath="$PROJECT_DIR$/shoestore-service/shoestore-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-sso/shoestore-sso.iml" filepath="$PROJECT_DIR$/shoestore-sso/shoestore-sso.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-utils/shoestore-utils.iml" filepath="$PROJECT_DIR$/shoestore-utils/shoestore-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-view/shoestore-view.iml" filepath="$PROJECT_DIR$/shoestore-view/shoestore-view.iml" />

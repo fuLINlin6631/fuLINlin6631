@@ -4,14 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.s.entity.Users;
 import com.s.interfac.UserService;
 import com.s.sso.dao.UserDao;
-import com.s.utils.CookieUtils;
 import com.s.utils.SystemResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -22,7 +19,7 @@ public class UserDaoImpl implements UserService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Override
-    public SystemResult login(String userEmail, String userpwd, HttpServletResponse response, HttpServletRequest request) {
+    public SystemResult login(String userEmail, String userpwd) {
         Users users = userDao.login(userEmail,userpwd);
         if (users==null) {
             return SystemResult.build(400,"用户名or密码有误，请重新输入");
@@ -32,8 +29,6 @@ public class UserDaoImpl implements UserService {
             String json = JSON.toJSONString(users);
             stringRedisTemplate.opsForValue().set("user:"+token, json);
             stringRedisTemplate.expire("user:"+token,30, TimeUnit.MINUTES);
-            //设置cookie的key和value，key随便字符串，value为token值
-            CookieUtils.setCookie(request,response,"user",token);
             return SystemResult.ok(token);
         }
     }
@@ -51,5 +46,14 @@ public class UserDaoImpl implements UserService {
             stringRedisTemplate.expire("user:"+token,30,TimeUnit.MINUTES);
             return SystemResult.ok(users);
         }
+    }
+
+    /**
+     * 根据token删除用户登录信息
+     * @param token
+     */
+    @Override
+    public void loginout(String token) {
+        stringRedisTemplate.delete("user:"+token);
     }
 }
