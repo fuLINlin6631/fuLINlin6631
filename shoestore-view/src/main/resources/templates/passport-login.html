@@ -15,7 +15,6 @@
     <link href="../static/css/style_b.css" rel="stylesheet" type="text/css"/>
     <link href="../static/css/style_1.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../static/js/tools.js"></script>
-    <script type="text/javascript" src="../static/js/jquery-3.2.1.js"></script>
     <style>
         .foot {
             border: 0;
@@ -38,40 +37,6 @@
         }
         .head .logo {
             height: auto
-        }
-    </style>
-    <style>
-        /* 彩贝商家接入规范 */
-        .mod_cb_jr_pop {
-            font-size: 12px;
-            width: 220px;
-            padding: 6px 10px 10px;
-            position: absolute;
-            left: 0;
-            top: 24px;
-            background: #fffce6;
-            border: 1px solid #f5d682;
-            visibility: hidden;
-        }
-        .mod_cb_jr_pop .pop_title {
-            font-size: 16px;
-            font-family: "Microsoft Yahei";
-            line-height: 30px;
-            padding-left: 28px;
-            background: url(static/images/bg.png) no-repeat left -34px;
-        }
-
-        .mod_cb_jr_pop .pop_tips {
-            line-height: 20px;
-        }
-
-        .mod_cb_jr_pop .pop_flag {
-            position: absolute;
-            width: 15px;
-            height: 7px;
-            left: 30px;
-            top: -6px;
-            background: url(static/images/bg.png) left -21px no-repeat;
         }
     </style>
 </head>
@@ -99,7 +64,7 @@
                         </td>
                         <td width="60%" style="vertical-align:top">
                             <div style="margin:0 auto;width:450px">
-                                <table width="100%" align="center">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
                                     <tr>
                                         <td>
                                             <div style="height:28px"><img src="../static/picture/loginpic21.png"/></div>
@@ -119,7 +84,9 @@
                                                         <th>用户名：</th>
                                                         <td>
                                                             <input name="login" class="x-input newinputstyle" id="in_login" tabindex="1" value="邮箱/手机/用户名"
-                                                                   onfocus="rmDefault(this)" style="width:220px;color:#aaa;border:1px solid #ccc;padding:3px 5px">
+                                                                   onfocus="rmDefault(this)"
+                                                                   onBlur="ga('send','event','会员','登陆过程','用户名');"
+                                                                   style="width:220px;color:#aaa;border:1px solid #ccc;padding:3px 5px">
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -139,7 +106,7 @@
                                                                                             id="iptlogin" tabindex="3"
                                                                                             vtype="digits"/>
                                                             <span class='verifyCode' style='display:block;'>
-                                                                <img src="static/picture/passport-l-verifycode.html" border="1"
+                                                                <img src="../static/picture/passport-l-verifycode.html" border="1"
                                                                 style="vertical-align:middle;padding:5px 0;background:#eee"/>&nbsp;
                                                                 <a href="javascript:void(0)" style="color:#666">换个图片</a>
                                                             </span>
@@ -158,7 +125,7 @@
                                                         <th></th>
                                                         <td style="color:#999;padding:35px 0 25px">
                                                             还不是名鞋库会员？　
-                                                            <a href='' onclick=""
+                                                            <a href='/passport-signup.htm' onclick="location.href='passport-signup.html'"
                                                                 class="lnk cf60" id="fast_login_reg">马上注册为会员</a>
                                                         </td>
                                                     </tr>
@@ -169,6 +136,40 @@
                                                     <div class="login-descript">使用合作网站账号登录名鞋库：</div>
                                                     <div class="box5"></div>
                                                     <div class="fl clfix" style="width:235px">
+                                                        <style>
+                                                            /* 彩贝商家接入规范 */
+                                                            .mod_cb_jr_pop {
+                                                                font-size: 12px;
+                                                                width: 220px;
+                                                                padding: 6px 10px 10px;
+                                                                position: absolute;
+                                                                left: 0;
+                                                                top: 24px;
+                                                                background: #fffce6;
+                                                                border: 1px solid #f5d682;
+                                                                visibility: hidden;
+                                                            }
+                                                            .mod_cb_jr_pop .pop_title {
+                                                                font-size: 16px;
+                                                                font-family: "Microsoft Yahei";
+                                                                line-height: 30px;
+                                                                padding-left: 28px;
+                                                                background: url(static/images/bg.png) no-repeat left -34px;
+                                                            }
+
+                                                            .mod_cb_jr_pop .pop_tips {
+                                                                line-height: 20px;
+                                                            }
+
+                                                            .mod_cb_jr_pop .pop_flag {
+                                                                position: absolute;
+                                                                width: 15px;
+                                                                height: 7px;
+                                                                left: 30px;
+                                                                top: -6px;
+                                                                background: url(static/images/bg.png) left -21px no-repeat;
+                                                            }
+                                                        </style>
                                                         <script type="text/javascript">
                                                             function toQzoneLogin() {
                                                                 window.open("http://www.s.cn/index.php?action_openid_qq-qq_login.html", "TencentLogin", "width=450,height=450,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1");
@@ -188,7 +189,7 @@
                                                     </div>
                                                     <div class="login-IconList">
                                                         <a href="javascript:$('alipay').submit();">
-                                                            <img src="../static/picture/taobao_login_btn.png">
+                                                            <img src="static/picture/taobao_login_btn.png">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -216,8 +217,8 @@
             <a target="_blank" href="">客户留言</a>&nbsp;|&nbsp;
             <a target="_blank" href="">意见反馈</a>&nbsp;|&nbsp;
             <a target="_blank" href="">全部分类</a>&nbsp;|&nbsp;
-            <a target="_blank" href="">友情链接</a>&nbsp;|&nbsp;
-            <a target="_blank" href="">鞋子尺码对照表</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">友情链接</a>&nbsp;|&nbsp;<a
+            target="_blank" href="">鞋子尺码对照表</a>&nbsp;|&nbsp;
             <a target="_blank" href="">问答</a>
             <a target="_blank" href="">咨询</a>
             <a target="_blank" href="">评论</a>

@@ -1,0 +1,433 @@
+/*<div class="warp">*/
+   .invoice-thickbox {
+        margin-left: 20px;
+    }
+
+    .invoice-thickbox .tab-nav {
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .tab-nav {
+        margin-bottom: 15px;
+    }
+
+    .tab-nav ul::after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .tab-nav ul {
+        display: block;
+    }
+
+    .tab-nav .tab-nav-item {
+        cursor: pointer;
+        float: left;
+        margin-right: 5px;
+        position: relative;
+    }
+
+    .form .item::after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .form .item {
+        display: block;
+        line-height: 25px;
+        margin-bottom: 15px;
+    }
+
+    .invoice-thickbox .form .item span.label {
+        line-height: 24px;
+        width: 120px;
+    }
+
+    .form .item span.label {
+        float: left;
+        height: 18px;
+        line-height: 18px;
+        padding: 4px 0 3px;
+        text-align: right;
+        width: 75px;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .invoice-thickbox .invoice-tit-list {
+        left: 0;
+        max-height: 132px;
+        overflow-y: auto;
+        position: relative;
+        top: 0;
+        width: 360px;
+    }
+
+    .invoice-thickbox .invoice-list {
+        width: 428px;
+    }
+
+    element.style {
+        cursor: pointer;
+    }
+
+    .invoice-thickbox .invoice-tit-list .invoice-item {
+        float: none;
+        margin-bottom: 10px;
+        padding: 6px 5px;
+        position: relative;
+        text-align: left;
+        width: 325px;
+    }
+
+    .invoice-thickbox .invoice-list .invoice-item-selected {
+        border: 2px solid #e4393c;
+        padding: 5px 18px;
+    }
+
+    .invoice-thickbox .invoice-list .invoice-item {
+        border: 1px solid #ebebeb;
+        float: left;
+        height: 18px;
+        line-height: 18px;
+        margin: 2px 10px 3px 0;
+        padding: 6px 19px;
+        position: relative;
+        text-align: center;
+        z-index: 1;
+    }
+
+    element.style {
+        cursor: pointer;
+    }
+
+    .invoice-thickbox .invoice-tit-list .invoice-item .itxt {
+        border: medium none;
+        padding: 0;
+        width: 256px;
+    }
+
+    .form .itxt {
+        height: 18px;
+        padding: 3px 5px 2px;
+        width: 155px;
+    }
+
+    .form .area, .form .itxt, .form .selt {
+        border: 1px solid #ccc;
+        float: none;
+        line-height: 18px;
+        padding: 5px;
+        vertical-align: middle;
+    }
+
+    .form input {
+        float: none;
+    }
+
+    .invoice-thickbox .invoice-tit-list .invoice-item {
+        float: none;
+        margin-bottom: 10px;
+        padding: 6px 5px;
+        position: relative;
+        text-align: left;
+        width: 325px;
+    }
+
+    .invoice-thickbox .invoice-list .invoice-item {
+        border: 1px solid #ebebeb;
+        float: left;
+        height: 18px;
+        line-height: 18px;
+        margin: 2px 10px 3px 0;
+        padding: 6px 19px;
+        position: relative;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .invoice-thickbox .invoice-tit-list .invoice-item .itxt {
+        border: medium none;
+        padding: 0;
+        width: 256px;
+    }
+
+    .form .itxt04 {
+        width: 225px;
+    }
+
+    .form .itxt {
+        height: 18px;
+        padding: 3px 5px 2px;
+        width: 155px;
+    }
+
+    .form .area, .form .itxt, .form .selt {
+        border: 1px solid #ccc;
+        float: none;
+        line-height: 18px;
+        padding: 5px;
+        vertical-align: middle;
+    }
+
+    .form input {
+        float: none;
+    }
+
+    .invoice-thickbox .invoice-tit-list .invoice-item .add-invoice-tit .btns {
+        display: block;
+    }
+
+    .invoice-thickbox .invoice-tit-list .invoice-item .btns {
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 6px;
+    }
+
+    .invoice-thickbox .invoice-tit-list .invoice-item .add-invoice-tit .btns {
+        display: block;
+    }
+
+    .invoice-thickbox .invoice-tit-list .invoice-item .btns {
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 6px;
+    }
+
+    .ftx-05, .ftx05 {
+        color: #005ea7;
+    }
+
+    .form .item::after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .form .item {
+        display: block;
+        line-height: 25px;
+        margin-bottom: 15px;
+    }
+
+    .invoice-thickbox .form .item span.label {
+        line-height: 24px;
+        width: 120px;
+    }
+
+    .form .item span.label {
+        float: left;
+        height: 18px;
+        line-height: 18px;
+        padding: 4px 0 3px;
+        text-align: right;
+        width: 75px;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .invoice-thickbox .invoice-list {
+        width: 428px;
+    }
+
+    .invoice-thickbox .invoice-list ul::after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .invoice-thickbox .invoice-list ul {
+        display: block;
+    }
+
+    .invoice-thickbox .invoice-list .invoice-item-selected {
+        border: 2px solid #e4393c;
+        padding: 5px 18px;
+    }
+
+    .invoice-thickbox .invoice-list .invoice-item {
+        border: 1px solid #ebebeb;
+        float: left;
+        height: 18px;
+        line-height: 18px;
+        margin: 2px 10px 3px 0;
+        padding: 6px 19px;
+        position: relative;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .invoice-thickbox .invoice-list {
+        width: 428px;
+    }
+
+    .invoice-thickbox .invoice-list ul::after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .invoice-thickbox .invoice-list ul {
+        display: block;
+    }
+
+    .invoice-thickbox .prompt-box {
+        margin-bottom: 10px;
+        width: 480px;
+    }
+
+    .prompt-box {
+        background: #fffdee none repeat scroll 0 0;
+        border: 1px solid #edd28b;
+        color: #f70;
+        line-height: 20px;
+        padding: 8px 10px;
+    }
+
+    .invoice-thickbox .invoice-status li.fore1.curr {
+        background: #ebebeb none repeat scroll 0 0;
+        color: #333;
+    }
+
+    .invoice-thickbox .invoice-status li.fore1 {
+        background: #f5f5f5 none repeat scroll 0 0;
+        border-color: #f5f5f5;
+        color: #ccc;
+    }
+
+    .invoice-thickbox .invoice-status li {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #ebebeb;
+        border-image: none;
+        border-style: solid;
+        border-width: 1px 0;
+        color: #b3b3b3;
+        float: left;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 20px 0 10px;
+        position: relative;
+    }
+
+    .btn-9 {
+        background-color: #f2f2f2;
+        background-image: linear-gradient(to top, #f2f2f2 0px, #f7f7f7 100%);
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        color: #323333;
+        cursor: pointer;
+        display: inline-block;
+        float: none;
+        font-family: arial, "microsoft yahei";
+        font-size: 12px;
+        font-weight: 400;
+        height: 23px;
+        line-height: 23px;
+        padding: 0 14px;
+    }
+
+    .btn-9 {
+        background-color: #f2f2f2;
+        background-image: linear-gradient(to top, #f2f2f2 0px, #f7f7f7 100%);
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        color: #323333;
+        cursor: pointer;
+        display: inline-block;
+        float: none;
+        font-family: arial, "microsoft yahei";
+        font-size: 12px;
+        font-weight: 400;
+        height: 23px;
+        line-height: 23px;
+        padding: 0 14px;
+    }
+
+    .ml10 {
+        margin-left: 10px;
+    }
+
+    .ftx-03, .ftx03 {
+        color: #999;
+    }
+
+    .mt10 {
+        margin-top: 10px;
+    }
+
+    .ftx-05, .ftx05 {
+        color: #005ea7;
+    }
+
+    .invoice-text {
+        margin-top: 20px;
+        clear: both;
+        height: 22px;
+        margin-bottom: 5px;
+    } 
+    
+
+#iconDivMain {
+    z-index: 7999;
+    width: 90px;
+    cursor: pointer;
+    height: 350px;
+    overflow: hidden;
+    position: fixed;
+    _position: absolute;
+    top: 150px;
+    _top: expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop+150+"px": document.body.scrollTop + (document.body.clientHeight-350) - 1);
+    left: 50%;
+    margin-left: 505px
+}
+
+.footer {
+    border-top: 2px solid #960303
+}
+
+.footer .row {
+    padding: 18px 0;
+    border-top: 1px solid #ececec;
+    color: #888;
+    text-align: center;
+    clear: both
+}
+
+.footer .row s {
+    font-size: 20px;
+    color: #c00;
+    font-weight: 700;
+    text-decoration: none
+}
+
+.warp {
+    width: 980px;
+    margin: 0 auto
+}
