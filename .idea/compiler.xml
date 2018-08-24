@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="shoestore-dao" />
+        <module name="shoestore-cart" />
         <module name="shoestore-entity" />
         <module name="shoestore-interface" />
         <module name="shoestore-order" />
@@ -19,6 +19,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ShoeManager" target="1.6" />
+      <module name="shoestore-cart" target="1.6" />
       <module name="shoestore-dao" target="1.6" />
       <module name="shoestore-entity" target="1.6" />
       <module name="shoestore-interface" target="1.6" />

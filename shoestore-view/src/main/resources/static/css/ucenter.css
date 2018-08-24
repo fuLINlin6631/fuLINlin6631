@@ -20,7 +20,7 @@
   .mbcancelfavorite:hover{background-position:-253px -194px}
 .mbchangecoupon{width:68px;height:21px;background-position:0 -173px}
   .mbchangecoupon:hover{background-position:0 -193px}
-.mbupbtn{height:36px;line-height:30px;width:170px;background-position:0 -52px;text-align:;font-weight:700;color:#fff;font-size:14px;cursor:pointer}
+.mbupbtn{height:36px;line-height:30px;width:170px;background-position:0 -52px;text-align:center;font-weight:700;color:#fff;font-size:14px;cursor:pointer}
   .mbupbtn:hover{background-position:0 -89px}
   
 .mbicons{background:url("../images/ucenter.png") no-repeat;display:inline-block;overflow:hidden;vertical-align:middle}

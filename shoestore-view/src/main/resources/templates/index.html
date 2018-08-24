@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -14,8 +14,11 @@
     <meta name="generator" content="ShopEx 4.8.5"/>
     <link rel="icon" href="//images.s.cn/favicon.ico" type="image/x-icon"/>
     <link rel="bookmark" href="//images.s.cn/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="static/css/index.css"/>
-    <script type="text/javascript" src="static/js/tools.js"></script>
+    <link rel="stylesheet" href="../static/css/index.css"/>
+    <script type="text/javascript" src="../static/js/tools.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.js"></script>
+    <script>var jq = jQuery.noConflict();</script>
+    <script type="text/javascript" src="../static/js/jquery.cookie.js"></script>
     <!--商品楼层-->
     <script type="text/javascript">
         var _oztime = new Date().getTime();
@@ -157,22 +160,30 @@
                 <ul class="q_menu">
                     <li>
                         <div id="2907">
-                        	<span id="uname_2907"></span>
-                        	<span id="loginBar_2907" class="cf60">
-                        		<a onclick="ga('send','event', '共同顶部', '顶部导航', '登陆');" rel="nofollow"
-                        			href="passport-login.html" class="act" id="hd_login">欢迎登录名鞋库</a>&nbsp;&nbsp;
-                        		<a onclick="ga('send','event', '共同顶部', '顶部导航', '注册');" rel="nofollow"
-                        			href="passport-signup.html" class="act" id="hd_signup">免费注册</a>
+                        	<span id="uname_2907" th:if="${session.users}!=null">
+                                欢迎您，
+                                <a href="http://localhost:10000/" id="hd_nickname" class="cc00 fb" th:text="${session.users.getUseremail()}"></a>
+                                !
+                            </span>
+                            <span id="loginBar_2907" class="cf60" th:if="${session.users}==null">
+                        		<a href="http://localhost:10000/passport-login.htm" class="act" id="hd_login">欢迎登录名鞋库</a>&nbsp;&nbsp;
+                        		<a href="passport-signup.html" class="act" id="hd_signup">免费注册</a>
                         	</span>
-                        	<span id="memberBar_2907" style="display: none;" class="c999">
-                        		<a rel="nofollow" href="passport-logout.html" id="hd_logout">[退出]</a>
+                            <span id="memberBar_2907" th:if="${session.users}!=null" class="c999">
+                        		<a rel="nofollow" onclick="loginout()" href="#" id="hd_logout">[退出]</a>
                         	</span>
+                            <script th:inline="javascript" type="text/javascript">
+                                function loginout() {
+                                    var token = jq.cookie("user");
+                                    location.href="http://localhost:10000/loginout/"+token;
+                                }
+                            </script>
                         </div>
                     </li>
                     <li class="menu my c666">
                     	<p>
-                    		<a rel="nofollow" onClick="ga('send','event', '共同顶部', '顶部导航', '我的名鞋库');"
-                    			href="/member-index.html">我的名鞋库</a>
+                            <a rel="nofollow" onClick="sso('member-index.htm')"
+                               href="#">我的名鞋库</a>
                     	</p>
                     	<i></i>
 
@@ -181,48 +192,57 @@
                             <div class="panel clfix myuc_link">
                                 <ul>
                                     <li>
-                                    	<a rel="nofollow" onClick="ga('send','event', '共同顶部', '顶部导航', '我的订单');"
-                                           href="member-orders.html">我的订单</a>
+                                        <a rel="nofollow" onClick="sso('member-orders.htm')" href="#">我的订单</a>
                                     </li>
                                     <li>
-                                    	<a rel="nofollow" onClick="ga('send','event', '共同顶部', '顶部导航', '我的积分');"
-                                           href="member-pointHistory.html">我的积分</a>
+                                        <a rel="nofollow" onClick="sso('member-pointHistory.htm')" href="#">我的积分</a>
                                     </li>
                                     <li>
-                                    	<a rel="nofollow" onClick="ga('send','event', '共同顶部', '顶部导航', '优惠券');"
-                                           href="member-coupon.html">优惠券</a>
+                                        <a rel="nofollow" onClick="sso('member-coupon.htm')" href="#">优惠券</a>
                                     </li>
                                     <li>
-                                    	<a rel="nofollow" onClick="ga('send','event', '共同顶部', '顶部导航', '商品收藏');"
-                                           href="member-favorite.html">商品收藏</a>
+                                        <a rel="nofollow" onClick="sso('member-favorite.htm')" href="#">商品收藏</a>
                                     </li>
                                     <li>
-                                    	<a rel="nofollow" onClick="ga('send','event', '共同顶部', '顶部导航', '收货地址');"
-                                           href="member-receiver.html">收货地址</a>
+                                        <a rel="nofollow" onClick="sso('member-receiver.htm')" href="#">收货地址</a>
                                     </li>
                                     <li>
-                                    	<a rel="nofollow" onClick="ga('send','event', '共同顶部', '顶部导航', '密码管理');"
-                                           href="member-security.html">密码管理</a>
+                                        <a rel="nofollow" onClick="sso('member-security.htm')" href="#">密码管理</a>
                                     </li>
                                 </ul>
+                                <script type="text/javascript">
+                                    function sso(e) {
+                                        var token = jq.cookie("user");
+                                        if (token){
+                                            jq.getJSON("http://localhost:10000/token/"+token+"?callback="+e,function (data) {
+                                                if(data.status == 200){
+                                                    location.replace(e);
+                                                }
+                                                if (data.status==400){
+                                                    location.replace("http://localhost:10000/passport-login.htm");
+                                                }
+                                            })
+                                        }else{
+                                            location.replace("http://localhost:10000/passport-login.htm");
+                                        }
+                                    }
+                                </script>
                             </div>
                         </div>
                     </li>
                     <li class="phone menu c666" style="margin-left:15px">
                     	<p>
-                    		<a href="page-wxshaoma.html" target="_blank">手机名鞋库</a>
+                    		<a href="#" target="_blank">手机名鞋库</a>
                     	</p>
                     	<i></i>
-
                         <div class="hd"></div>
                         <div class="drop" style="padding:10px;right:-1px;width:210px">
-                            <img data_src="static/picture/201410081165.png" width="100" height="120" style="margin-right:10px"/>
-                            <img data_src="static/picture/201410081168.png" width="100" height="120"/>
+                            <img src="../static/picture/201410081165.png" width="100" height="120" style="margin-right:5px"/>
+                            <img src="../static/picture/201410081168.png" width="100" height="120"/>
                         </div>
                     </li>
                     <li>
-                        <a href="javascript:;" onClick="ga('send','event', '共同顶部', '顶部导航', '收藏');AddFavorite('//www.s.cn','名鞋库网上鞋城,超值名牌鞋服网站,买鞋子,就在S.cn名鞋库！')"
-                           style="font-family:arial">收藏名鞋库</a>
+                        <a href="javascript:;" style="font-family:arial">收藏名鞋库</a>
                     </li>
                     <li class="qq" style="padding-left:35px">
                         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1425218151&site=qq&menu=yes"><s></s>名鞋库客服</a>
@@ -233,20 +253,19 @@
     </div>
     <div class="page-block w1190 clfix">
         <div class="logo">
-            <a onClick="ga('send','event', '共同顶部', 'LOGO', '返回首页');" href="index.html" title="返回名鞋库首页">
-                <img src="static/images/transparent.gif" width="421" height="63" alt="欢迎来到名鞋库网上鞋城!"/>
+            <a href="index.html" title="返回名鞋库首页">
+                <img src="../static/images/transparent.gif" width="421" height="63" alt="欢迎来到名鞋库网上鞋城!"/>
             </a>
         </div>
         <div class="sub_help">
             <div class="cart c666">
                 <div id="2908">
                     <div class="miniCart">
-                        <a rel="nofollow" onclick="ga('send','event', '共同顶部', '顶部导航', '去购物车');" href="" target="_blank"
-                           class="nums">购物车
-                            <b class="cart-num"></b>件
+                        <a rel="nofollow" href="" target="_blank" class="nums">
+                            购物车
+                            <b class="cart-num">0</b>件
                         </a>
                         <i></i>
-
                         <div class="MiniCarDetail"></div>
                     </div>
                 </div>
@@ -459,24 +478,15 @@
         <div class="navbox">
             <ul>
                 <li class="subnav">
-                    <a onClick="ga('send','event','共同顶部','主导航','上新区');" target="_blank" href="//www.s.cn/new.html"
-                       class="new">上新区</a>
-                    <a onClick="ga('send','event','共同顶部','主导航','断码区');" target="_blank" href="">即将售罄</a>
-                    <a style="color:#FC0;" onClick="ga('send','event','共同顶部','主导航','逢八必杀');" target="_blank"
-                       href="//www.s.cn/vip.html">逢八必杀</a>
+                    <a target="_blank" href="javascript:;" class="new">上新区</a>
+                    <a target="_blank" href="javascript:;">即将售罄</a>
+                    <a style="color:#FC0;" target="_blank" href="javascript:;">逢八必杀</a>
                 </li>
                 <li class="lf_cat on" id="leftcat_ctl">所有商品分类</li>
                 <li class="tnav">
-                    <a rel="nofollow" onClick="ga('send','event','共同顶部','主导航','首页');" class="first on"
-                       href="index.html">首页</a>
-                    <a rel="nofollow" onClick="ga('send','event','共同顶部','主导航','男子运动');" 
-                    	href="javascript:;" title="男子运动" id="nav_nanzi">男子运动</a>
-                    <a rel="nofollow" onClick="ga('send','event','共同顶部','主导航','女子运动');" 
-                    	href="javascript:;" title="女子运动" id="nav_nvzi">女子运动</a>
-                    <a rel="nofollow" onClick="ga('send','event', '共同顶部','主导航','儿童');" 
-                    	href="//www.s.cn/ertong.html" target="_blank" title="儿童" id="nav_ertong">儿童</a>
-                    <a target="_blank" rel="nofollow" onClick="ga('send','event', '共同顶部','主导航','配件');" 
-                    	href="" title="配件">配件</a>
+                    <a rel="nofollow" class="first on" href="http://localhost:10000/index.htm">首页</a>
+                    <a rel="nofollow" href="javascript:;" title="男子运动" id="nav_nanzi">男子运动</a>
+                    <a rel="nofollow" href="javascript:;" title="女子运动" id="nav_nvzi">女子运动</a>
                 </li>
             </ul>
         </div>

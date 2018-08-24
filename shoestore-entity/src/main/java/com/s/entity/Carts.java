@@ -1,40 +1,40 @@
-package com.my.db;
+package com.s.entity;
 
 public class Carts {
-  private Long cartid;
-  private Long userid;
-  private Long productid;
-  private Long productcount;
+  private Integer cartid;
+  private Integer userid;
+  private Integer productid;
+  private Integer productcount;
 
-  public Long getCartid() {
+  public Integer getCartid() {
     return cartid;
   }
 
-  public void setCartid(Long cartid) {
+  public void setCartid(Integer cartid) {
     this.cartid = cartid;
   }
 
-  public Long getUserid() {
+  public Integer getUserid() {
     return userid;
   }
 
-  public void setUserid(Long userid) {
+  public void setUserid(Integer userid) {
     this.userid = userid;
   }
 
-  public Long getProductid() {
+  public Integer getProductid() {
     return productid;
   }
 
-  public void setProductid(Long productid) {
+  public void setProductid(Integer productid) {
     this.productid = productid;
   }
 
-  public Long getProductcount() {
+  public Integer getProductcount() {
     return productcount;
   }
 
-  public void setProductcount(Long productcount) {
+  public void setProductcount(Integer productcount) {
     this.productcount = productcount;
   }
 }

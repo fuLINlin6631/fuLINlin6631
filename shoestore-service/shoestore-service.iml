@@ -93,8 +93,6 @@
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: com.github.sgroschupf:zkclient:0.1" level="project" />
     <orderEntry type="module" module-name="shoestore-utils" />
-    <orderEntry type="module" module-name="shoestore-dao" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.46" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.6" level="project" />
+    <orderEntry type="library" name="Maven: com.s:shoestore-dao:1.0-SNAPSHOT" level="project" />
   </component>
 </module>

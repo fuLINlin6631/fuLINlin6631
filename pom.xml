@@ -18,6 +18,7 @@
         <module>shoestore-dao</module>
         <module>shoestore-order</module>
         <module>shoestore-solr</module>
+        <module>shoestore-cart</module>
     </modules>
     <!-- Inherit defaults from Spring Boot -->
     <parent>

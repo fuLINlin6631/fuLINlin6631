@@ -15,6 +15,7 @@
     <link href="../static/css/style_b.css" rel="stylesheet" type="text/css"/>
     <link href="../static/css/style_1.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../static/js/tools.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.js"></script>
     <style>
         .foot {
             border: 0;
@@ -51,8 +52,7 @@
     </div>
 </div>
 <div class="AllWrapInside">
-    <form method="post" onsubmit="return checkLogin(this);" action='//www.s.cn/passport-verify.html' class='loginform'
-          id='loginform'>
+    <form method="post" action='login.htm' class='loginform' id='loginform'>
         <div class="RegisterWrap" style="margin:0">
             <div class="form" style="padding:0;border:0"><input name="forward" type="hidden" value="">
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -77,13 +77,13 @@
                                                     <tr>
                                                         <th></th>
                                                         <td colspan="2" style="height:35px;line-height:25px">
-                                                            <span class="valierror" id="valierror" style="margin:0;display:none"></span>
+                                                            <span class="valierror" id="valierror" style="margin:0;display:none">${message}</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th>用户名：</th>
                                                         <td>
-                                                            <input name="login" class="x-input newinputstyle" id="in_login" tabindex="1" value="邮箱/手机/用户名"
+                                                            <input name="userEmail" class="x-input newinputstyle" id="in_login" tabindex="1" value="邮箱/手机/用户名"
                                                                    onfocus="rmDefault(this)"
                                                                    onBlur="ga('send','event','会员','登陆过程','用户名');"
                                                                    style="width:220px;color:#aaa;border:1px solid #ccc;padding:3px 5px">
@@ -92,31 +92,28 @@
                                                     <tr>
                                                         <th style="padding-top:15px">密　码：</th>
                                                         <td style="padding-top:15px">
-                                                            <input autocomplete="off" class="x-input newinputstyle" name="passwd" class="newinputstyle"
-                                                                                            type="password" id="in_passwd" tabindex="2"
-                                                                                            onBlur="ga('send','event','会员','登陆过程','密码');"
-                                                                                            style="width:220px;border:1px solid #ccc;padding:3px 5px"/>
+                                                            <input autocomplete="off" class="x-input newinputstyle" name="userpwd" class="newinputstyle"
+                                                                   type="password" id="in_passwd" tabindex="2"
+                                                                   onBlur="ga('send','event','会员','登陆过程','密码');"
+                                                                   style="width:220px;border:1px solid #ccc;padding:3px 5px"/>
                                                         </td>
                                                     </tr>
-                                                    <tr id="verifyTr">
-                                                        <th style="padding-top:15px">验证码：</th>
-                                                        <td style="padding-top:15px">
-                                                            <input autocomplete="off" class="x-input " style="width:65px;border:1px solid #ccc;padding:3px 5px" size="8" type="text" name="loginverifycode"
-                                                                                            onBlur="ga('send','event','会员','登陆过程','验证码');"
-                                                                                            id="iptlogin" tabindex="3"
-                                                                                            vtype="digits"/>
-                                                            <span class='verifyCode' style='display:block;'>
-                                                                <img src="../static/picture/passport-l-verifycode.html" border="1"
-                                                                style="vertical-align:middle;padding:5px 0;background:#eee"/>&nbsp;
-                                                                <a href="javascript:void(0)" style="color:#666">换个图片</a>
-                                                            </span>
-                                                        </td>
-                                                    </tr>
+                                                    <!--<tr id="verifyTr">-->
+                                                        <!--<th style="padding-top:15px">验证码：</th>-->
+                                                        <!--<td style="padding-top:15px">-->
+                                                            <!--<input class="x-input " style="width:65px;border:1px solid #ccc;padding:3px 5px" size="8" type="text" name="loginverifycode"-->
+                                                                   <!--id="iptlogin"/>-->
+                                                            <!--<span class='verifyCode'>-->
+                                                                <!--<img src="../static/picture/passport-l-verifycode.html" border="1"-->
+                                                                <!--style="vertical-align:middle;padding:5px 0;background:#eee"/>&nbsp;-->
+                                                                <!--<a href="javascript:void(0)" style="color:#666">换个图片</a>-->
+                                                            <!--</span>-->
+                                                        <!--</td>-->
+                                                    <!--</tr>-->
                                                     <tr>
                                                         <th></th>
                                                         <td style="padding-top:20px">
                                                             <input class="actbtn cart-btn-next05" type="submit" value="登录"
-                                                                onclick="ga('send','event','会员','登陆过程','登陆 ');"
                                                                 tabindex="4" id="fast_login" style="display:inline"/>
                                                             <a style="margin-left:10px;vertical-align:bottom" href="passport-lost.html" id="fast_login_fogot" class="c777">忘记密码？</a>
                                                         </td>
@@ -125,8 +122,7 @@
                                                         <th></th>
                                                         <td style="color:#999;padding:35px 0 25px">
                                                             还不是名鞋库会员？　
-                                                            <a href='/passport-signup.htm' onclick="location.href='passport-signup.html'"
-                                                                class="lnk cf60" id="fast_login_reg">马上注册为会员</a>
+                                                            <a href='passport-signup.html' class="lnk cf60" id="fast_login_reg">马上注册为会员</a>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -178,7 +174,7 @@
                                                         <div class="login-IconList">
                                                             <div style="position:relative;width:70px;height:16px;" onMouseover="$('loginQq').style.visibility='visible';" onMouseout="$('loginQq').style.visibility='hidden';">
                                                                 <a href="javascript:void(0);" onclick='toQzoneLogin()'
-                                                                   id="union_login_qq"><img src="static/picture/qq_login_btn.png"/></a>
+                                                                   id="union_login_qq"><img src="../static/picture/qq_login_btn.png"/></a>
                                                                 <div class="mod_cb_jr_pop" id="loginQq">
                                                                     <div class="pop_title">QQ彩贝联盟商户</div>
                                                                     <div class="pop_tips">使用QQ无需注册，购物还可额外获得彩贝积分返还。</div>
@@ -189,7 +185,7 @@
                                                     </div>
                                                     <div class="login-IconList">
                                                         <a href="javascript:$('alipay').submit();">
-                                                            <img src="static/picture/taobao_login_btn.png">
+                                                            <img src="../static/picture/taobao_login_btn.png">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -209,16 +205,16 @@
 <div class="foot" style="border-top:2px solid #CE3C3B;background:none">
     <div class="row02 c777">
         <span>
-            <a target="_blank" href="">关于名鞋库</a>&nbsp;|&nbsp;
-            <a target="_blank" href="">联系名鞋库</a>&nbsp;|&nbsp;
-            <a target="_blank" href="">人才招聘</a>&nbsp;|&nbsp;
-            <a target="_blank" href="">免责条款</a>&nbsp;|&nbsp;
-            <a target="_blank" href="">法律声明</a>&nbsp;|&nbsp;
-            <a target="_blank" href="">客户留言</a>&nbsp;|&nbsp;
+            <a target="_blank" href="#">关于名鞋库</a>&nbsp;|&nbsp;
+            <a target="_blank" href="#">联系名鞋库</a>&nbsp;|&nbsp;
+            <a target="_blank" href="#">人才招聘</a>&nbsp;|&nbsp;
+            <a target="_blank" href="#">免责条款</a>&nbsp;|&nbsp;
+            <a target="_blank" href="#">法律声明</a>&nbsp;|&nbsp;
+            <a target="_blank" href="#">客户留言</a>&nbsp;|&nbsp;
             <a target="_blank" href="">意见反馈</a>&nbsp;|&nbsp;
             <a target="_blank" href="">全部分类</a>&nbsp;|&nbsp;
-            <a target="_blank" href="">友情链接</a>&nbsp;|&nbsp;<a
-            target="_blank" href="">鞋子尺码对照表</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">友情链接</a>&nbsp;|&nbsp;
+            <a target="_blank" href="">鞋子尺码对照表</a>&nbsp;|&nbsp;
             <a target="_blank" href="">问答</a>
             <a target="_blank" href="">咨询</a>
             <a target="_blank" href="">评论</a>
