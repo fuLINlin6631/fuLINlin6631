@@ -1,8 +1,9 @@
 package com.s.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Product_types {
+public class Product_types implements Serializable {
   private Integer typeid;
   private String typename;
   private Integer superior;

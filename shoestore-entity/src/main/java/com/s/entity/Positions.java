@@ -1,16 +1,18 @@
 package com.s.entity;
 
-public class Positions {
-  private Long positionsid;
-  private String positionsname;
-  private Long positionwidth;
-  private Long positionheight;
+import java.io.Serializable;
 
-  public Long getPositionsid() {
+public class Positions implements Serializable {
+  private Integer positionsid;
+  private String positionsname;
+  private Integer positionwidth;
+  private Integer positionheight;
+
+  public Integer getPositionsid() {
     return positionsid;
   }
 
-  public void setPositionsid(Long positionsid) {
+  public void setPositionsid(Integer positionsid) {
     this.positionsid = positionsid;
   }
 
@@ -22,19 +24,19 @@ public class Positions {
     this.positionsname = positionsname;
   }
 
-  public Long getPositionwidth() {
+  public Integer getPositionwidth() {
     return positionwidth;
   }
 
-  public void setPositionwidth(Long positionwidth) {
+  public void setPositionwidth(Integer positionwidth) {
     this.positionwidth = positionwidth;
   }
 
-  public Long getPositionheight() {
+  public Integer getPositionheight() {
     return positionheight;
   }
 
-  public void setPositionheight(Long positionheight) {
+  public void setPositionheight(Integer positionheight) {
     this.positionheight = positionheight;
   }
 }

@@ -14,21 +14,21 @@ public class CartServiceImpl implements CartService {
     private CartMapper cartMapper;
     @Override
     public List<Carts> getCarts(Integer userId) {
-        return null;
+        return cartMapper.getCarts(userId);
     }
 
     @Override
-    public int updateCount(Integer count) {
-        return 0;
+    public int updateCount(Integer cartId,Integer count) {
+        return cartMapper.updateCount(cartId,count);
     }
 
     @Override
     public int delCart(Integer cartId) {
-        return 0;
+        return cartMapper.delCart(cartId);
     }
 
     @Override
     public int addCart(Carts carts) {
-        return 0;
+        return cartMapper.addCart(carts);
     }
 }

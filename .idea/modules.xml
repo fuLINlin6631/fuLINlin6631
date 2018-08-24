@@ -4,9 +4,12 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ShoeManager.iml" filepath="$PROJECT_DIR$/ShoeManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-cart/shoestore-cart.iml" filepath="$PROJECT_DIR$/shoestore-cart/shoestore-cart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-comment/shoestore-comment.iml" filepath="$PROJECT_DIR$/shoestore-comment/shoestore-comment.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-entity/shoestore-entity.iml" filepath="$PROJECT_DIR$/shoestore-entity/shoestore-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-homepage/shoestore-homepage.iml" filepath="$PROJECT_DIR$/shoestore-homepage/shoestore-homepage.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-interface/shoestore-interface.iml" filepath="$PROJECT_DIR$/shoestore-interface/shoestore-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-order/shoestore-order.iml" filepath="$PROJECT_DIR$/shoestore-order/shoestore-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoestore-seckill/shoestore-seckill.iml" filepath="$PROJECT_DIR$/shoestore-seckill/shoestore-seckill.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-service/shoestore-service.iml" filepath="$PROJECT_DIR$/shoestore-service/shoestore-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-solr/shoestore-solr.iml" filepath="$PROJECT_DIR$/shoestore-solr/shoestore-solr.iml" />
       <module fileurl="file://$PROJECT_DIR$/shoestore-sso/shoestore-sso.iml" filepath="$PROJECT_DIR$/shoestore-sso/shoestore-sso.iml" />

@@ -7,8 +7,12 @@
     http://code.alibabatech.com/schema/dubbo
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="hellospringboot"></dubbo:application>
+    <dubbo:application name="ShoeManager"></dubbo:application>
     <dubbo:registry address="zookeeper://localhost:2181"/>
 
     <dubbo:reference id="userInterface" interface="com.s.interfac.UserService"></dubbo:reference>
+    <dubbo:reference id="advertService" interface="com.s.interfac.AdvertService"></dubbo:reference>
+    <dubbo:reference id="positionsService" interface="com.s.interfac.PositionsService"></dubbo:reference>
+    <dubbo:reference id="producttypesService" interface="com.s.interfac.ProducttypesService"></dubbo:reference>
+    <dubbo:reference id="productService" interface="com.s.interfac.ProductService"></dubbo:reference>
 </beans>
