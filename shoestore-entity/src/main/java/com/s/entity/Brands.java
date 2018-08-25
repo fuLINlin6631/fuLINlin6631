@@ -1,6 +1,8 @@
-package com.my.db;
+package com.s.entity;
 
-public class Brands {
+import java.io.Serializable;
+
+public class Brands implements Serializable {
   private Long brandid;
   private String brandname;
   private String brandimg;

@@ -14,5 +14,7 @@
     <orderEntry type="library" name="servlet-api1" level="project" />
     <orderEntry type="module" module-name="shoestore-entity" />
     <orderEntry type="module" module-name="shoestore-utils" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.32" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-annotations-api:8.5.32" level="project" />
   </component>
 </module>

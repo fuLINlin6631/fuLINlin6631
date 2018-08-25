@@ -11,5 +11,16 @@
 
     <artifactId>shoestore-utils</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.s</groupId>
+            <artifactId>shoestore-entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

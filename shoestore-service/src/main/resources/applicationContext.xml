@@ -14,4 +14,6 @@
     <dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
     <!-- 声明哪些service可以被调用 -->
     <!--<dubbo:service interface="com.s.interfac.UserService" ref="userDaoImpl"></dubbo:service>-->
+    <dubbo:service interface="com.s.interfac.SpecService" ref="specServiceImpl" timeout="1200000"></dubbo:service>
+    <dubbo:service interface="com.s.interfac.BrandsService" ref="brandsServiceImpl" timeout="1200000"></dubbo:service>
 </beans>

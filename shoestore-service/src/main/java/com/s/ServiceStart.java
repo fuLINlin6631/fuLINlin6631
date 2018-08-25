@@ -1,4 +1,4 @@
-package com.s.service;
+package com.s;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

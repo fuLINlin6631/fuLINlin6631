@@ -56,6 +56,10 @@ public class UserController  {
         return "index";
     }
 
+    @RequestMapping("/list")
+    public String list(){
+        return "list";
+    }
     @RequestMapping("/passport-login.htm")
     public String passportlogin(){
         return "passport-login";

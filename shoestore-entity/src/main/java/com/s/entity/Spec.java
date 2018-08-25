@@ -1,19 +1,13 @@
 package com.s.entity;
 
-public class Spec {
-  private String specid;
+import java.io.Serializable;
+
+public class Spec implements Serializable {
+  private Integer specid;
   private String specname;
-  private String superior;
+  private Integer superior;
   private java.sql.Timestamp createtime;
   private java.sql.Timestamp modifytime;
-
-  public String getSpecid() {
-    return specid;
-  }
-
-  public void setSpecid(String specid) {
-    this.specid = specid;
-  }
 
   public String getSpecname() {
     return specname;
@@ -23,11 +17,19 @@ public class Spec {
     this.specname = specname;
   }
 
-  public String getSuperior() {
+  public Integer getSpecid() {
+    return specid;
+  }
+
+  public void setSpecid(Integer specid) {
+    this.specid = specid;
+  }
+
+  public Integer getSuperior() {
     return superior;
   }
 
-  public void setSuperior(String superior) {
+  public void setSuperior(Integer superior) {
     this.superior = superior;
   }
 

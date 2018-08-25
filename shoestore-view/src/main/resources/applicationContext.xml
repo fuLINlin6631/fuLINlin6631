@@ -11,4 +11,6 @@
     <dubbo:registry address="zookeeper://localhost:2181"/>
 
     <dubbo:reference id="userInterface" interface="com.s.interfac.UserService"></dubbo:reference>
+    <dubbo:reference id="specService" interface="com.s.interfac.SpecService" ></dubbo:reference>
+    <dubbo:reference id="brandsService" interface="com.s.interfac.BrandsService" ></dubbo:reference>
 </beans>
