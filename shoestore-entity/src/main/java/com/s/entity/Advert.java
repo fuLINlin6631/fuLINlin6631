@@ -1,26 +1,29 @@
 package com.s.entity;
 
-public class Advert {
-  private Long advertid;
-  private Long positionsid;
+import java.io.Serializable;
+import java.util.Date;
+
+public class Advert implements Serializable {
+  private Integer advertid;
+  private Integer positionsid;
   private String advertname;
   private String adverturl;
   private String advertimg;
-  private java.sql.Date createtime;
+  private Date createtime;
 
-  public Long getAdvertid() {
+  public Integer getAdvertid() {
     return advertid;
   }
 
-  public void setAdvertid(Long advertid) {
+  public void setAdvertid(Integer advertid) {
     this.advertid = advertid;
   }
 
-  public Long getPositionsid() {
+  public Integer getPositionsid() {
     return positionsid;
   }
 
-  public void setPositionsid(Long positionsid) {
+  public void setPositionsid(Integer positionsid) {
     this.positionsid = positionsid;
   }
 
@@ -48,11 +51,11 @@ public class Advert {
     this.advertimg = advertimg;
   }
 
-  public java.sql.Date getCreatetime() {
+  public Date getCreatetime() {
     return createtime;
   }
 
-  public void setCreatetime(java.sql.Date createtime) {
+  public void setCreatetime(Date createtime) {
     this.createtime = createtime;
   }
 }

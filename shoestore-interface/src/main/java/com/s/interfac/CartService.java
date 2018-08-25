@@ -14,10 +14,11 @@ public interface CartService {
 
     /**
      * 更新购物车数量
+     * @param cartId
      * @param count
      * @return
      */
-    int updateCount(Integer count);
+    int updateCount(Integer cartId,Integer count);
 
     /**
      * 删除购物车商品

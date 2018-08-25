@@ -19,6 +19,9 @@
         <module>shoestore-order</module>
         <module>shoestore-solr</module>
         <module>shoestore-cart</module>
+        <module>shoestore-homepage</module>
+        <module>shoestore-seckill</module>
+        <module>shoestore-comment</module>
     </modules>
     <!-- Inherit defaults from Spring Boot -->
     <parent>

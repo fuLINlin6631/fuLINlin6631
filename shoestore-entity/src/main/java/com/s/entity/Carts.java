@@ -1,6 +1,8 @@
 package com.s.entity;
 
-public class Carts {
+import java.io.Serializable;
+
+public class Carts implements Serializable {
   private Integer cartid;
   private Integer userid;
   private Integer productid;

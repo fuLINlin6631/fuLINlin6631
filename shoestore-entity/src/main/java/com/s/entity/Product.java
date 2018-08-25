@@ -1,25 +1,28 @@
 package com.s.entity;
 
-public class Product {
-  private Long productid;
+import java.io.Serializable;
+import java.util.Date;
+
+public class Product implements Serializable {
+  private Integer productid;
   private String productname;
   private String producttitle;
-  private Long producttapprice;
-  private Long productagio;
-  private Long brandid;
-  private Long productstock;
-  private Long typeid;
+  private Integer producttapprice;
+  private Integer productagio;
+  private Integer brandid;
+  private Integer productstock;
+  private Integer typeid;
   private String producturl;
   private String productalbum;
   private String productstatus;
-  private java.sql.Timestamp createtime;
-  private java.sql.Timestamp modifytime;
+  private Date createtime;
+  private Date modifytime;
 
-  public Long getProductid() {
+  public Integer getProductid() {
     return productid;
   }
 
-  public void setProductid(Long productid) {
+  public void setProductid(Integer productid) {
     this.productid = productid;
   }
 
@@ -39,43 +42,43 @@ public class Product {
     this.producttitle = producttitle;
   }
 
-  public Long getProducttapprice() {
+  public Integer getProducttapprice() {
     return producttapprice;
   }
 
-  public void setProducttapprice(Long producttapprice) {
+  public void setProducttapprice(Integer producttapprice) {
     this.producttapprice = producttapprice;
   }
 
-  public Long getProductagio() {
+  public Integer getProductagio() {
     return productagio;
   }
 
-  public void setProductagio(Long productagio) {
+  public void setProductagio(Integer productagio) {
     this.productagio = productagio;
   }
 
-  public Long getBrandid() {
+  public Integer getBrandid() {
     return brandid;
   }
 
-  public void setBrandid(Long brandid) {
+  public void setBrandid(Integer brandid) {
     this.brandid = brandid;
   }
 
-  public Long getProductstock() {
+  public Integer getProductstock() {
     return productstock;
   }
 
-  public void setProductstock(Long productstock) {
+  public void setProductstock(Integer productstock) {
     this.productstock = productstock;
   }
 
-  public Long getTypeid() {
+  public Integer getTypeid() {
     return typeid;
   }
 
-  public void setTypeid(Long typeid) {
+  public void setTypeid(Integer typeid) {
     this.typeid = typeid;
   }
 
@@ -103,19 +106,19 @@ public class Product {
     this.productstatus = productstatus;
   }
 
-  public java.sql.Timestamp getCreatetime() {
+  public Date getCreatetime() {
     return createtime;
   }
 
-  public void setCreatetime(java.sql.Timestamp createtime) {
+  public void setCreatetime(Date createtime) {
     this.createtime = createtime;
   }
 
-  public java.sql.Timestamp getModifytime() {
+  public Date getModifytime() {
     return modifytime;
   }
 
-  public void setModifytime(java.sql.Timestamp modifytime) {
+  public void setModifytime(Date modifytime) {
     this.modifytime = modifytime;
   }
 }
