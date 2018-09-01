@@ -18,4 +18,18 @@ public interface SpecService
      * @return
      */
     List<Spec> findSpecSecondInfo(Integer specId);
+
+    /**
+     *  根据code查询分类编号
+     * @param code
+     * @return
+     */
+    Integer findCodeInfo(String code);
+
+    /**
+     *  获取分类名称
+     * @param sid
+     * @return
+     */
+    List<Spec> findSidInfo(Integer sid);
 }

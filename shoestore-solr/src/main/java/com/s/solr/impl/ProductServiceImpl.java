@@ -55,4 +55,14 @@ public class ProductServiceImpl implements ProductService {
         }
         return null;
     }
+
+    @Override
+    public Product findByPNameInfo(String productName) {
+        return null;
+    }
+
+    @Override
+    public List<Product> findProductByInfo(Integer[] sid, String bname) {
+        return null;
+    }
 }

@@ -17,4 +17,5 @@
     <dubbo:reference id="positionsService" interface="com.s.interfac.PositionsService"></dubbo:reference>
     <dubbo:reference id="producttypesService" interface="com.s.interfac.ProducttypesService"></dubbo:reference>
     <dubbo:reference id="productService" interface="com.s.interfac.ProductService"></dubbo:reference>
+    <dubbo:reference id="productspecService" interface="com.s.interfac.ProductspecService"></dubbo:reference>
 </beans>

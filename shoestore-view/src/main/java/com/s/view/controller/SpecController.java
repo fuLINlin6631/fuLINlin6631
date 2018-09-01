@@ -40,7 +40,7 @@ public class SpecController
     @ResponseBody
     @RequestMapping("/findSpecSecondInfo")
     public List<Spec> findSpecSecondInfo(){
-        return specService.findSpecSecondInfo(1);
+        return specService.findSpecSecondInfo(5);
     }
 
 }

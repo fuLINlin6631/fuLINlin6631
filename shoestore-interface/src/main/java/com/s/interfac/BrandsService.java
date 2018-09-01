@@ -11,4 +11,11 @@ public interface BrandsService
      * @return
      */
     List<Brands> findBrandsInfo();
+
+    /**
+     *  获取品牌名称
+     * @param bid
+     * @return
+     */
+    Brands findBidInfo(Integer bid);
 }

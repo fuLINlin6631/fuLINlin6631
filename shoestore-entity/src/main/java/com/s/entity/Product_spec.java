@@ -1,6 +1,8 @@
 package com.s.entity;
 
-public class Product_spec {
+import java.io.Serializable;
+
+public class Product_spec implements Serializable {
   private Long pspecid;
   private Long specid;
   private Long superior;

@@ -23,4 +23,14 @@ public class SpecServiceImpl implements SpecService
     public List<Spec> findSpecSecondInfo(Integer specId) {
         return specMapper.findSpecSecondInfo(specId);
     }
+
+    @Override
+    public Integer findCodeInfo(String code) {
+        return specMapper.findCodeInfo(code);
+    }
+
+    @Override
+    public List<Spec> findSidInfo(Integer sid) {
+        return specMapper.findSidInfo(sid);
+    }
 }

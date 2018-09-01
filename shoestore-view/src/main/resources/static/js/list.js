@@ -12,13 +12,13 @@ function specTop() {
 
 function specSecond() {
     $.getJSON("findSpecSecondInfo" , function (json) {
-        vueProductSpecSecond.sslist = json;
+        vueProductSpecSecond.splist = json;
     })
 }
 
 function brandsInfo() {
     $.getJSON("findBrandsInfo" , function (json) {
-        vueProductBrands.blist = json;
+        vueProductBrands.brlist = json;
     })
 }
 
@@ -28,21 +28,21 @@ var vueProductBrands = null;
 
 $(document).ready(function(){
     vueProductSpecTop = new Vue({
-        el : "#specTopInfo" ,
+        el : "#aaa" ,
         data : {
             stlist : null
         }
     });
-    vueProductSpecSecond = new Vue({
-        el : "#specTopInfo" ,
+    vueProductBrands = new Vue({
+        el : "#brand_dl" ,
         data : {
-            sslist : null
+            brlist : null
         }
     });
     vueProductSpecSecond = new Vue({
-        el : "#specTopInfo" ,
+        el : "#f_type_dl" ,
         data : {
-            blist : null
+            splist : null
         }
     });
 });

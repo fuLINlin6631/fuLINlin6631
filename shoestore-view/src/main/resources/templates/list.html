@@ -1879,7 +1879,7 @@
     		</span>
     	</p>
     </div>
-    <div class="n_filterbox" id="specTopInfo"><input value="0" type="hidden">
+    <div class="n_filterbox"><input value="0" type="hidden">
 
         <div class="n_select" id="select_dls">
             <dl id="f_type_dl" class="select_dl">
@@ -1888,7 +1888,7 @@
                 <dt>
                 	<span>类型：</span>
                 </dt>
-                <dd v-for="spec in sslist">
+                <dd v-for="spec in splist">
                 	<a is_color='0' href="//www.s.cn/list/0c1" url_id='0c1' is_brand='0'>{{spec.specname}}<i><span>(1367)</span></i></a>
                 </dd>
                 <div class="more_open_act" style="display: none;" id="f_type_div">
@@ -1898,15 +1898,13 @@
                 </div>
             </dl>
 
-
-
             <dl id="brand_dl" class="select_dl">
                 <div onclick="showmoredd('brand',14)" class="more_open">多选</div>
                 <div onclick="showalldd('brand',14)" class="open">更多</div>
                 <div onclick="showanydd('brand',14)" style="display:none" class="close">收起</div>
                 <dt><span>品牌：</span></dt>
-                <dd v-for="brands in blist">
-                	<a class="nike" href="//www.s.cn/list/nike" title="耐克" url_id='nike' is_color='0' is_brand='nike'>{{brands.brandname}}<i></i></a>
+                <dd v-for="brands in brlist">
+                	<a v-bind:class="brands.code" v-bind:href="'/list/'+brands.code" v-bind:title="brands.brandname" v-bind:url_id='brands.code' is_color='0' v-bind:is_brand='brands.brandname'>{{brands.brandname}}<i></i></a>
                 </dd>
 
                 <div class="more_open_act" style="display: none;" id="brand_div">
@@ -1917,23 +1915,26 @@
             </dl>
 
 
-            <dl id="f_category_dl" class="select_dl" v-for="spec in stlist">
-                <div onclick="showmoredd('brand',14)" class="more_open">多选</div>
-                <div onclick="showalldd('brand',14)" class="open">更多</div>
-                <div onclick="showanydd('brand',14)" style="display:none" class="close">收起</div>
-                <dt>
-                	<span>{{spec.specname}}：</span>
-                </dt>
-                <dd v-for="sc in spec.specs">
-                	<a is_color='0' href="//www.s.cn/list/0d1" url_id='0d1' is_brand='0'>{{sc.specname}}<i><span>(341)</span></i></a>
-                </dd>
-                <div class="more_open_act" style="display: none;" id="f_category_div">
-                	<i class="more_nosub">提交</i>
-                	<i class="more_sub" style="display: none;" onclick="submoredd('f_category',0)">提交</i>
-                	<i class="more_close" onclick="closemoredd('f_category',14,1)">取消</i>
-                </div>
-            </dl>
-            <input value="7" type="hidden">
+            <div id="aaa">
+
+                <dl id="f_category_dl" class="select_dl" v-for="spec in stlist">
+                    <div onclick="showmoredd('brand',14)" class="more_open">多选</div>
+                    <div onclick="showalldd('brand',14)" class="open">更多</div>
+                    <div onclick="showanydd('brand',14)" style="display:none" class="close">收起</div>
+                    <dt>
+                        <span>{{spec.specname}}：</span>
+                    </dt>
+                    <dd v-for="sc in spec.specs">
+                        <!--th:href="'http://localhost:10000/list?productName='+${sc.code}0d1&bname=adidas'"-->
+                        <a is_color='0'  url_id='0d1' is_brand='0'>{{sc.specname}}<i><span>(341)</span></i></a>
+                    </dd>
+                    <div class="more_open_act" style="display: none;" id="f_category_div">
+                        <i class="more_nosub">提交</i>
+                        <i class="more_sub" style="display: none;" onclick="submoredd('f_category',0)">提交</i>
+                        <i class="more_close" onclick="closemoredd('f_category',14,1)">取消</i>
+                    </div>
+                </dl>
+            </div>
             <div style="position:relative;line-height:0;overflow:hidden;margin-bottom:-1px;margin-bottom:-5px\9"></div>
         </div>
         <script>
@@ -2180,15 +2181,14 @@
     <div class="product_list product_fz_new" id="">
         
         
-        <dl id='dl_109371'>
+        <dl th:each="pc : ${pc}" >
             <dt>
-            	<a class='big_pic' id="goods_1" data-id="109371" 
-            		data-name="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"
-                   data-brand="李宁" data-category="休闲鞋" data-price="159" data-position="1" 
-                   href="//www.s.cn/lining-GLAL007-6.html" target="_blank" onclick="onProductClick(this);"
-                   title="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"> 
-                   <img alt="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"
-                   	 src="static/picture/4fea21c2939a8418_210.jpg"/>
+            	<a class='big_pic'  th:data-id="${pc.productid}"
+            		th:data-name="${pc.producttitle}"
+                   th:data-brand="${pc.brandname}" th:data-price="${pc.productagio}" data-position="${count}"
+                   th:href="'http://localhost:10000/product.htm?productId='+${pc.productid}" target="_blank" onclick="onProductClick(this);"
+                   th:title="${pc.producttitle}">
+                   <img th:alt="${pc.producttitle}" th:src="'../static/images/'+${pc.producturl}"/>
             	</a>
             <div class="p-scroll">
             	<span class="ps-prev disabled">&lt;</span> 
@@ -2196,10 +2196,9 @@
 
                 <div class="ps-wrap">
                     <ul>
-                        <li onmouseover='ajax_info(109371,{"pic":"\/\/images.s.cn\/images\/goods\/20160520\/4fea21c2939a8418_210.jpg","m_pc":"\/\/images.s.cn\/images\/20160408\/81a4ae74fb7f96ed.jpg","m_wap":"\/\/images.s.cn\/images\/20090622\/6ef69b452e054a88.gif","has_size":"441","size":"441","url":"lining-GLAL007-6.html","pmt_price":"0.00"});'
-                            pro_info=''>
+                        <li pro_info=''>
                             <a href="javascript:;" class="" title="">
-                            	<img width="25" height="25" src="static/picture/81a4ae74fb7f96ed.jpg">
+                            	<img width="25" height="25" th:src="'../static/images/'+${pc.producturl}">
                             </a>
                         </li>
                     </ul>
@@ -2207,151 +2206,24 @@
             </div>
             </dt>
             <dd>
-            	<a data-id="109371" data-name="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007" data-brand="李宁"
-                   data-category="休闲鞋" data-price="159" data-position="1" onclick="onProductClick(this);"
-                   href="//www.s.cn/lining-GLAL007-6.html" target="_blank"
-                   title="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007">
+            	<a th:data-id="${pc.productid}"
+                   th:data-name="${pc.producttitle}"
+                   th:data-brand="${pc.brandname}" th:data-price="${pc.productagio}" data-position="${count}"
+                   th:href="'http://localhost:10000/product.htm?productId='+${pc.productid}" target="_blank" onclick="onProductClick(this);"
+                   th:title="${pc.producttitle}">
                 <ul>
                     <li class="r1">
-                    	<i class="price" style="font-size:12px;color:#555">￥159.00</i>
-                    	<i class="del_price">￥359.00</i>
+                    	<i class="price" style="font-size:12px;color:#555" th:text="'￥'+${pc.productagio}"></i>
+                    	<i class="del_price" th:text="'￥'+${pc.producttapprice}"></i>
                     </li>
-                    <li class="r2"> LINING李宁 休闲鞋 男 藏黑蓝+新基础黑</li>
-                    <li class="r3">已售出<i>160</i>件</li>
-                    <li class="r4">尺码：43</li>
+                    <li class="r2" th:text="${pc.code}+${pc.brandname}"></li>
+                    <li class="r3">尺码：<span th:each="sname : ${pc.specs}" th:text="${sname.specname}+'、'"></span></li>
+                    <li class="r4"></li>
                 </ul>
             </a></dd>
         </dl>
-        
-        <dl id='dl_109371'>
-            <dt>
-            	<a class='big_pic' id="goods_1" data-id="109371" 
-            		data-name="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"
-                   data-brand="李宁" data-category="休闲鞋" data-price="159" data-position="1" 
-                   href="//www.s.cn/lining-GLAL007-6.html" target="_blank" onclick="onProductClick(this);"
-                   title="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"> 
-                   <img alt="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"
-                   	 src="static/picture/4fea21c2939a8418_210.jpg"/>
-            	</a>
-            <div class="p-scroll">
-            	<span class="ps-prev disabled">&lt;</span> 
-            	<span class="ps-next">&gt;</span>
 
-                <div class="ps-wrap">
-                    <ul>
-                        <li onmouseover='ajax_info(109371,{"pic":"\/\/images.s.cn\/images\/goods\/20160520\/4fea21c2939a8418_210.jpg","m_pc":"\/\/images.s.cn\/images\/20160408\/81a4ae74fb7f96ed.jpg","m_wap":"\/\/images.s.cn\/images\/20090622\/6ef69b452e054a88.gif","has_size":"441","size":"441","url":"lining-GLAL007-6.html","pmt_price":"0.00"});'
-                            pro_info=''>
-                            <a href="javascript:;" class="" title="">
-                            	<img width="25" height="25" src="static/picture/81a4ae74fb7f96ed.jpg">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            </dt>
-            <dd>
-            	<a data-id="109371" data-name="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007" data-brand="李宁"
-                   data-category="休闲鞋" data-price="159" data-position="1" onclick="onProductClick(this);"
-                   href="//www.s.cn/lining-GLAL007-6.html" target="_blank"
-                   title="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007">
-                <ul>
-                    <li class="r1">
-                    	<i class="price" style="font-size:12px;color:#555">￥159.00</i>
-                    	<i class="del_price">￥359.00</i>
-                    </li>
-                    <li class="r2"> LINING李宁 休闲鞋 男 藏黑蓝+新基础黑</li>
-                    <li class="r3">已售出<i>160</i>件</li>
-                    <li class="r4">尺码：43</li>
-                </ul>
-            </a></dd>
-        </dl>
-        
-                <dl id='dl_109371'>
-            <dt>
-            	<a class='big_pic' id="goods_1" data-id="109371" 
-            		data-name="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"
-                   data-brand="李宁" data-category="休闲鞋" data-price="159" data-position="1" 
-                   href="//www.s.cn/lining-GLAL007-6.html" target="_blank" onclick="onProductClick(this);"
-                   title="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"> 
-                   <img alt="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"
-                   	 src="static/picture/4fea21c2939a8418_210.jpg"/>
-            	</a>
-            <div class="p-scroll">
-            	<span class="ps-prev disabled">&lt;</span> 
-            	<span class="ps-next">&gt;</span>
-
-                <div class="ps-wrap">
-                    <ul>
-                        <li onmouseover='ajax_info(109371,{"pic":"\/\/images.s.cn\/images\/goods\/20160520\/4fea21c2939a8418_210.jpg","m_pc":"\/\/images.s.cn\/images\/20160408\/81a4ae74fb7f96ed.jpg","m_wap":"\/\/images.s.cn\/images\/20090622\/6ef69b452e054a88.gif","has_size":"441","size":"441","url":"lining-GLAL007-6.html","pmt_price":"0.00"});'
-                            pro_info=''>
-                            <a href="javascript:;" class="" title="">
-                            	<img width="25" height="25" src="static/picture/81a4ae74fb7f96ed.jpg">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            </dt>
-            <dd>
-            	<a data-id="109371" data-name="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007" data-brand="李宁"
-                   data-category="休闲鞋" data-price="159" data-position="1" onclick="onProductClick(this);"
-                   href="//www.s.cn/lining-GLAL007-6.html" target="_blank"
-                   title="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007">
-                <ul>
-                    <li class="r1">
-                    	<i class="price" style="font-size:12px;color:#555">￥159.00</i>
-                    	<i class="del_price">￥359.00</i>
-                    </li>
-                    <li class="r2"> LINING李宁 休闲鞋 男 藏黑蓝+新基础黑</li>
-                    <li class="r3">已售出<i>160</i>件</li>
-                    <li class="r4">尺码：43</li>
-                </ul>
-            </a></dd>
-        </dl>
-        
-                <dl id='dl_109371'>
-            <dt>
-            	<a class='big_pic' id="goods_1" data-id="109371" 
-            		data-name="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"
-                   data-brand="李宁" data-category="休闲鞋" data-price="159" data-position="1" 
-                   href="//www.s.cn/lining-GLAL007-6.html" target="_blank" onclick="onProductClick(this);"
-                   title="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"> 
-                   <img alt="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007"
-                   	 src="static/picture/4fea21c2939a8418_210.jpg"/>
-            	</a>
-            <div class="p-scroll">
-            	<span class="ps-prev disabled">&lt;</span> 
-            	<span class="ps-next">&gt;</span>
-
-                <div class="ps-wrap">
-                    <ul>
-                        <li onmouseover='ajax_info(109371,{"pic":"\/\/images.s.cn\/images\/goods\/20160520\/4fea21c2939a8418_210.jpg","m_pc":"\/\/images.s.cn\/images\/20160408\/81a4ae74fb7f96ed.jpg","m_wap":"\/\/images.s.cn\/images\/20090622\/6ef69b452e054a88.gif","has_size":"441","size":"441","url":"lining-GLAL007-6.html","pmt_price":"0.00"});'
-                            pro_info=''>
-                            <a href="javascript:;" class="" title="">
-                            	<img width="25" height="25" src="static/picture/81a4ae74fb7f96ed.jpg">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            </dt>
-            <dd>
-            	<a data-id="109371" data-name="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007" data-brand="李宁"
-                   data-category="休闲鞋" data-price="159" data-position="1" onclick="onProductClick(this);"
-                   href="//www.s.cn/lining-GLAL007-6.html" target="_blank"
-                   title="李宁休闲鞋男鞋新活力系列Easy City轻便半掌气垫夏季运动鞋GLAL007">
-                <ul>
-                    <li class="r1">
-                    	<i class="price" style="font-size:12px;color:#555">￥159.00</i>
-                    	<i class="del_price">￥359.00</i>
-                    </li>
-                    <li class="r2"> LINING李宁 休闲鞋 男 藏黑蓝+新基础黑</li>
-                    <li class="r3">已售出<i>160</i>件</li>
-                    <li class="r4">尺码：43</li>
-                </ul>
-            </a></dd>
-        </dl>
-   </div>
+    </div>
     <div id="wait_time"
          style="background:url(static/images/loading.gif) no-repeat center;height:40px;border-top:0"></div>
     <div class="box10"></div>
@@ -4868,7 +4740,7 @@
     <a target="_blank" href="//www.s.cn/anta-brand.html" class="anta">
     	<span></span>安踏
     </a> 
-    <a target="_blank" href="//www.s.cn/lining-brand.html" class="lining">
+    <a target="_blank" href="//www.s.cn/list/lining" class="lining">
     	<span></span>李宁
     </a>
     <a target="_blank" href="//www.s.cn/list/toread" class="troead">
@@ -4945,18 +4817,18 @@
         	</a>
         </dt>
         <dd>
-        	<a href="//www.s.cn/list/0b1-0c2" target="_blank">运动服</a> 
-        	<a href="//www.s.cn/list/0c2-0f1" target="_blank">男运动服</a>
-            <a href="//www.s.cn/list/0c2-0f2" target="_blank">女运动服</a>
-            <a href="//www.s.cn/list/0c2-0d13" target="_blank">运动裤</a> 
-            <a href="//www.s.cn/list/0c2-0d29" target="_blank">卫衣</a> 
-            <a href="//www.s.cn/list/0c2-0d30" target="_blank">夹克</a> 
-            <a href="//www.s.cn/list/0c2-0d53" target="_blank">T恤</a> 
-            <a href="//www.s.cn/list/0c2-0d31" target="_blank">外套</a> 
-            <a href="//www.s.cn/list/0c2-0d34" target="_blank">冲锋衣</a> 
-            <a href="//www.s.cn/list/0c2-0d32" target="_blank">棉服</a> 
-            <a href="//www.s.cn/list/0c2-0d33" target="_blank">羽绒服</a> 
-            <a href="//www.s.cn/list/0c2-0d68" target="_blank">休闲裤</a>
+        	<a href="/list/0b1-0c2" target="_blank">运动服</a>
+        	<a href="/list/0c2-0f1" target="_blank">男运动服</a>
+            <a href="/list/0c2-0f2" target="_blank">女运动服</a>
+            <a href="/list/0c2-0d13" target="_blank">运动裤</a>
+            <a href="/list/0c2-0d29" target="_blank">卫衣</a>
+            <a href="/list/0c2-0d30" target="_blank">夹克</a>
+            <a href="/list/0c2-0d53" target="_blank">T恤</a>
+            <a href="/list/0c2-0d31" target="_blank">外套</a>
+            <a href="/list/0c2-0d34" target="_blank">冲锋衣</a>
+            <a href="/list/0c2-0d32" target="_blank">棉服</a>
+            <a href="/list/0c2-0d33" target="_blank">羽绒服</a>
+            <a href="/list/0c2-0d68" target="_blank">休闲裤</a>
         </dd>
     </dl>
     <dl>

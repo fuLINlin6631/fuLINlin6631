@@ -17,4 +17,9 @@ public class BrandsServiceImpl implements BrandsService
     public List<Brands> findBrandsInfo() {
         return brandsMapper.findBrandsInfo();
     }
+
+    @Override
+    public Brands findBidInfo(Integer bid) {
+        return brandsMapper.findBidInfo(bid);
+    }
 }

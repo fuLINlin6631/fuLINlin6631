@@ -10,6 +10,15 @@ public class Brands implements Serializable {
   private Long dataflag;
   private java.sql.Timestamp createtime;
   private java.sql.Timestamp modifytime;
+  private String code;
+
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
 
   public Long getBrandid() {
     return brandid;
